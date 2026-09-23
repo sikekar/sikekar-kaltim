@@ -74,9 +74,54 @@
 <section id="pengaduan" class="section alt"><div class="section-title"><span>06</span><div><h2>Pengaduan & Laporan</h2><p>Form demo. Hubungkan ke Supabase pada tahap backend.</p></div></div>
 <form id="complaint" class="form"><input required placeholder="Nama"><input required type="email" placeholder="Email"><input placeholder="Lokasi kejadian"><select><option>Keselamatan K2</option><option>Gangguan pelayanan</option><option>Instalasi/pembangkit</option><option>Lainnya</option></select><textarea required placeholder="Uraian laporan"></textarea><button class="btn primary">Kirim Laporan</button><span id="formMsg"></span></form></section>
 
-<section id="login" class="section login-section"><div class="login-box"><span class="eyebrow">AREA TERBATAS</span><h2>Login SIKEKAR</h2><p>Demo antarmuka. Autentikasi nyata diaktifkan melalui Supabase pada tahap backend.</p><input placeholder="Email / nomor WhatsApp"><input type="password" placeholder="Password"><button class="btn primary" onclick="alert('Mode demo. Hubungkan Supabase untuk login nyata.')">Masuk</button></div></section>
+<section id="login" class="section login-section">
+
+  <div class="login-box">
+
+    <span class="eyebrow">AREA TERBATAS</span>
+
+    <h2>Login SIKEKAR</h2>
+
+    <p>
+      Masuk ke sistem SIKEKAR menggunakan akun yang telah
+      terdaftar dan memiliki hak akses.
+    </p>
+
+    <input
+      id="loginEmail"
+      type="email"
+      placeholder="Email"
+      autocomplete="username"
+    >
+
+    <input
+      id="loginPassword"
+      type="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    >
+
+    <button
+      class="btn primary"
+      type="button"
+      onclick="loginSIKEKAR()"
+    >
+      Masuk
+    </button>
+
+    <div
+      id="loginMessage"
+      style="margin-top:12px;"
+      aria-live="polite"
+    ></div>
+
+  </div>
+
+</section>
 </main>
 
 <footer><div><b>SIKEKAR</b><p>Sistem Informasi Ketenagalistrikan & Keselamatan — Provinsi Kalimantan Timur</p></div><div><p>Portal publik • K2 • GIS • Pelaporan • Dashboard</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
