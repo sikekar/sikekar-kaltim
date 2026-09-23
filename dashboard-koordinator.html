@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b4f8a"
+  >
+
+  <title>
+    Dashboard Koordinator IK — SIKEKAR Kaltim
+  </title>
+
+  <meta
+    name="description"
+    content="Dashboard Koordinator Inspektur Ketenagalistrikan SIKEKAR Provinsi Kalimantan Timur."
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.webmanifest"
+  >
+
+  <link
+    rel="icon"
+    href="assets/logo.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+  <div class="brand">
+
+    <img
+      src="assets/logo.svg"
+      alt="Logo SIKEKAR"
+    >
+
+    <div>
+
+      <b>SIKEKAR</b>
+
+      <small>
+        Dinas ESDM Provinsi Kalimantan Timur
+      </small>
+
+    </div>
+
+  </div>
+
+
+  <nav>
+
+    <a href="index.html">
+      Portal Publik
+    </a>
+
+    <button
+      class="login"
+      type="button"
+      onclick="logoutSIKEKAR()"
+    >
+      Logout
+    </button>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+  <div class="hero-copy">
+
+    <span class="eyebrow">
+      DASHBOARD INTERNAL
+    </span>
+
+    <h1>
+      Dashboard
+      <strong>Koordinator IK</strong>
+    </h1>
+
+    <p>
+      Sistem Informasi Ketenagalistrikan &
+      Keselamatan Provinsi Kalimantan Timur.
+    </p>
+
+  </div>
+
+
+  <div class="hero-card">
+
+    <div class="card-head">
+
+      <span>
+        Status Akun
+      </span>
+
+      <span class="pulse">
+        ● AKTIF
+      </span>
+
+    </div>
+
+
+    <div class="metrics">
+
+      <div>
+
+        <b id="profileName">
+          ...
+        </b>
+
+        <small>
+          Pengguna
+        </small>
+
+      </div>
+
+
+      <div>
+
+        <b id="profileRole">
+          ...
+        </b>
+
+        <small>
+          Hak Akses
+        </small>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-title">
+
+    <span>
+      01
+    </span>
+
+    <div>
+
+      <h2>
+        Ringkasan Pengawasan
+      </h2>
+
+      <p>
+        Ringkasan awal SIKEKAR.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="grid cards">
+
+
+    <article class="service">
+
+      <span class="icon">
+        🏢
+      </span>
+
+      <h3>
+        Pelaku Usaha
+      </h3>
+
+      <p>
+        Data badan usaha dan objek
+        ketenagalistrikan.
+      </p>
+
+      <a href="#">
+        Buka Modul →
+      </a>
+
+    </article>
+
+
+    <article class="service">
+
+      <span class="icon">
+        ⚡
+      </span>
+
+      <h3>
+        Pembangkit
+      </h3>
+
+      <p>
+        Pendataan pembangkit,
+        generator dan instalasi.
+      </p>
+
+      <a href="#">
+        Buka Modul →
+      </a>
+
+    </article>
+
+
+    <article class="service">
+
+      <span class="icon">
+        🔎
+      </span>
+
+      <h3>
+        Pengawasan K2
+      </h3>
+
+      <p>
+        Pembinaan, inspeksi,
+        temuan dan tindak lanjut.
+      </p>
+
+      <a href="#">
+        Buka Modul →
+      </a>
+
+    </article>
+
+
+    <article class="service">
+
+      <span class="icon">
+        📋
+      </span>
+
+      <h3>
+        Checklist K2
+      </h3>
+
+      <p>
+        ANDAL, AMAN, HANDAL dan
+        RAMAH LINGKUNGAN.
+      </p>
+
+      <a href="#">
+        Buka Modul →
+      </a>
+
+    </article>
+
+
+    <article class="service">
+
+      <span class="icon">
+        📄
+      </span>
+
+      <h3>
+        Berita Acara
+      </h3>
+
+      <p>
+        Dokumen hasil pembinaan
+        dan pengawasan.
+      </p>
+
+      <a href="#">
+        Buka Modul →
+      </a>
+
+    </article>
+
+
+    <article class="service">
+
+      <span class="icon">
+        📊
+      </span>
+
+      <h3>
+        Laporan
+      </h3>
+
+      <p>
+        Rekap kegiatan, temuan,
+        tindak lanjut dan pelaporan.
+      </p>
+
+      <a href="#">
+        Buka Modul →
+      </a>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<section class="section alt">
+
+  <div class="section-title">
+
+    <span>
+      02
+    </span>
+
+    <div>
+
+      <h2>
+        Menu Koordinator
+      </h2>
+
+      <p>
+        Modul yang akan kita aktifkan
+        secara bertahap.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="dashboard">
+
+
+    <div class="dash-card">
+
+      <h3>
+        👥 Manajemen Pengguna
+      </h3>
+
+      <p>
+        Mengelola pengguna dan
+        hak akses SIKEKAR.
+      </p>
+
+    </div>
+
+
+    <div class="dash-card">
+
+      <h3>
+        🗺 GIS Ketenagalistrikan
+      </h3>
+
+      <p>
+        Peta pembangkit, instalasi,
+        jaringan dan objek pengawasan.
+      </p>
+
+    </div>
+
+
+    <div class="dash-card">
+
+      <h3>
+        ⚠ Temuan & Tindak Lanjut
+      </h3>
+
+      <p>
+        Memantau status temuan,
+        tindakan korektif dan re-inspeksi.
+      </p>
+
+    </div>
+
+
+    <div class="dash-card">
+
+      <h3>
+        📬 Pengaduan
+      </h3>
+
+      <p>
+        Memantau laporan masyarakat
+        dan tindak lanjut.
+      </p>
+
+    </div>
+
+
+    <div class="dash-card">
+
+      <h3>
+        📑 Perizinan
+      </h3>
+
+      <p>
+        IUPTLS, SKTP, IUJPTL,
+        SLO, SKTTK dan NIDI.
+      </p>
+
+    </div>
+
+
+    <div class="dash-card">
+
+      <h3>
+        📈 Analitik
+      </h3>
+
+      <p>
+        Statistik pengawasan
+        ketenagalistrikan Kaltim.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-title">
+
+    <span>
+      03
+    </span>
+
+    <div>
+
+      <h2>
+        Identitas Pengguna
+      </h2>
+
+      <p>
+        Informasi akun yang sedang login.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="dash-card">
+
+    <p>
+      <strong>Nama:</strong>
+      <span id="detailName">-</span>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <span id="detailEmail">-</span>
+    </p>
+
+    <p>
+      <strong>Jabatan:</strong>
+      <span id="detailPosition">-</span>
+    </p>
+
+    <p>
+      <strong>Instansi:</strong>
+      <span id="detailInstitution">-</span>
+    </p>
+
+    <p>
+      <strong>Role:</strong>
+      <span id="detailRole">-</span>
+    </p>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div>
+
+    <b>
+      SIKEKAR
+    </b>
+
+    <p>
+      Sistem Informasi Ketenagalistrikan &
+      Keselamatan — Provinsi Kalimantan Timur
+    </p>
+
+  </div>
+
+  <div>
+
+    <p>
+      Dashboard Koordinator Inspektur Ketenagalistrikan
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+const SUPABASE_URL =
+  "https://xtsswagzmilocpzjmrxa.supabase.co/rest/v1/";
+
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_wsec_CUeinzgkyH5huOfwA_epZzjC8o";
+
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+
+// ==========================================
+// CEK LOGIN
+// ==========================================
+
+async function checkKoordinatorAccess() {
+
+  const {
+    data: {
+      session
+    }
+  } =
+    await supabaseClient.auth.getSession();
+
+
+  if (!session) {
+
+    window.location.href =
+      "index.html#login";
+
+    return;
+
+  }
+
+
+  const {
+    data: profile,
+    error
+  } =
+    await supabaseClient
+      .from("profiles")
+      .select(`
+        id,
+        full_name,
+        email,
+        position,
+        institution_name,
+        is_active,
+        roles (
+          role_code,
+          role_name
+        )
+      `)
+      .eq("id", session.user.id)
+      .single();
+
+
+  if (error) {
+
+    console.error(
+      "PROFILE ERROR:",
+      error
+    );
+
+    await supabaseClient.auth.signOut();
+
+    window.location.href =
+      "index.html#login";
+
+    return;
+
+  }
+
+
+  // Akun harus aktif
+
+  if (!profile.is_active) {
+
+    await supabaseClient.auth.signOut();
+
+    alert(
+      "Akun Anda tidak aktif."
+    );
+
+    window.location.href =
+      "index.html#login";
+
+    return;
+
+  }
+
+
+  // Harus Koordinator IK
+
+  const roleCode =
+    profile.roles?.role_code;
+
+
+  if (roleCode !== "koordinator_ik") {
+
+    await supabaseClient.auth.signOut();
+
+    alert(
+      "Akses ditolak. Halaman ini khusus Koordinator IK."
+    );
+
+    window.location.href =
+      "index.html#login";
+
+    return;
+
+  }
+
+
+  // Tampilkan profil
+
+  document.getElementById(
+    "profileName"
+  ).textContent =
+    profile.full_name || "-";
+
+
+  document.getElementById(
+    "profileRole"
+  ).textContent =
+    profile.roles?.role_name || "-";
+
+
+  document.getElementById(
+    "detailName"
+  ).textContent =
+    profile.full_name || "-";
+
+
+  document.getElementById(
+    "detailEmail"
+  ).textContent =
+    profile.email || session.user.email || "-";
+
+
+  document.getElementById(
+    "detailPosition"
+  ).textContent =
+    profile.position || "-";
+
+
+  document.getElementById(
+    "detailInstitution"
+  ).textContent =
+    profile.institution_name || "-";
+
+
+  document.getElementById(
+    "detailRole"
+  ).textContent =
+    profile.roles?.role_name || "-";
+
+}
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+async function logoutSIKEKAR() {
+
+  await supabaseClient.auth.signOut();
+
+  window.location.href =
+    "index.html";
+
+}
+
+
+// Jalankan pemeriksaan
+
+checkKoordinatorAccess();
+
+</script>
+
+
+</body>
+
+</html>
