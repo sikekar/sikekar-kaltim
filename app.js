@@ -5,7 +5,7 @@
 
 // ---------- SUPABASE CONFIG ----------
 // GANTI 2 NILAI DI BAWAH INI
-const SUPABASE_URL = "https://xtsswagzmilocpzjmrxa.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://xtsswagzmilocpzjmrxa.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wsec_CUeinzgkyH5huOfwA_epZzjC8o";
 
 // Membuat koneksi Supabase
