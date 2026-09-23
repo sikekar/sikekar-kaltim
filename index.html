@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b4f8a">
+  <title>SIKEKAR Kaltim — Sistem Informasi Ketenagalistrikan & Keselamatan</title>
+  <meta name="description" content="Portal informasi, pembinaan dan pengawasan keselamatan ketenagalistrikan Provinsi Kalimantan Timur.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/logo.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><img src="assets/logo.svg" alt="Logo SIKEKAR"><div><b>SIKEKAR</b><small>Dinas ESDM Provinsi Kalimantan Timur</small></div></div>
+  <button class="menu" aria-label="Buka menu">☰</button>
+  <nav>
+    <a href="#beranda">Beranda</a><a href="#layanan">Layanan</a><a href="#data">Data</a><a href="#k2">Keselamatan K2</a><a href="#berita">Berita</a><a href="#pengaduan">Pengaduan</a>
+    <a class="login" href="#login">Login</a>
+  </nav>
+</header>
+
+<main>
+<section id="beranda" class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">PORTAL KETENAGALISTRIKAN KALIMANTAN TIMUR</span>
+    <h1>Informasi, pembinaan & pengawasan <strong>keselamatan ketenagalistrikan</strong></h1>
+    <p>Portal digital SIKEKAR untuk Inspektur Ketenagalistrikan, Pelaku Usaha, Pemerintahan, PLN, dan Masyarakat.</p>
+    <div class="actions"><a class="btn primary" href="#layanan">Lihat Layanan</a><a class="btn ghost" href="#data">Eksplorasi Data</a></div>
+  </div>
+  <div class="hero-card">
+    <div class="card-head"><span>Ringkasan SIKEKAR</span><span class="pulse">● LIVE</span></div>
+    <div class="metrics"><div><b id="mUsaha">0</b><small>Pelaku Usaha</small></div><div><b id="mInspeksi">0</b><small>Inspeksi K2</small></div><div><b id="mTemuan">0</b><small>Temuan</small></div><div><b id="mLokasi">0</b><small>Lokasi Terpetakan</small></div></div>
+    <div class="mini-map"><span>GIS K2</span><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<section id="layanan" class="section">
+  <div class="section-title"><span>01</span><div><h2>Pelayanan Publik</h2><p>Akses cepat ke layanan dan modul SIKEKAR.</p></div></div>
+  <div class="grid cards">
+    <article class="service"><span class="icon">⚡</span><h3>Inspeksi K2</h3><p>Checklist ANDAL, AMAN, HANDAL dan RAMAH LINGKUNGAN, foto, GPS, temuan dan tindak lanjut.</p><a href="#login">Buka Modul →</a></article>
+    <article class="service"><span class="icon">🏢</span><h3>Pelaku Usaha</h3><p>Pendataan pembangkit, izin, SLO, SKTTK, NIDI, pelaporan semester dan histori pengawasan.</p><a href="#login">Portal Usaha →</a></article>
+    <article class="service"><span class="icon">🏛️</span><h3>Pemerintahan</h3><p>Kolaborasi pemerintah daerah, pemantauan wilayah, data fasilitas dan tindak lanjut K2.</p><a href="#login">Portal Pemerintah →</a></article>
+    <article class="service"><span class="icon">🗺️</span><h3>GIS Ketenagalistrikan</h3><p>Peta lokasi pembangkit, jaringan, objek inspeksi dan status kepatuhan.</p><a href="#data">Lihat Peta →</a></article>
+    <article class="service"><span class="icon">📄</span><h3>Dokumen & Regulasi</h3><p>Pusat dokumen, formulir, pedoman, berita acara, surat teguran dan laporan.</p><a href="#dokumen">Buka Dokumen →</a></article>
+    <article class="service"><span class="icon">📣</span><h3>Pengaduan</h3><p>Saluran laporan masyarakat terkait keselamatan dan pelayanan ketenagalistrikan.</p><a href="#pengaduan">Buat Laporan →</a></article>
+  </div>
+</section>
+
+<section id="data" class="section alt">
+  <div class="section-title"><span>02</span><div><h2>Dashboard Ketenagalistrikan</h2><p>Contoh tampilan dashboard; angka produksi dapat dihubungkan ke database.</p></div></div>
+  <div class="dashboard">
+    <div class="dash-card wide"><h3>Objek Pengawasan per Kabupaten/Kota</h3><div class="bars">
+      <label>Samarinda <i style="--v:86%"></i></label><label>Balikpapan <i style="--v:78%"></i></label><label>Berau <i style="--v:56%"></i></label><label>Kutai Kartanegara <i style="--v:71%"></i></label><label>Penajam Paser Utara <i style="--v:43%"></i></label>
+    </div></div>
+    <div class="dash-card"><h3>Status Kepatuhan K2</h3><div class="donut"><b>82%</b></div><p>Target kepatuhan berbasis hasil inspeksi dan verifikasi.</p></div>
+    <div class="dash-card"><h3>Quick Search</h3><input id="search" placeholder="Cari badan usaha / lokasi..."><div id="results" class="results">Ketik untuk mencari data contoh.</div></div>
+  </div>
+</section>
+
+<section id="k2" class="section">
+  <div class="section-title"><span>03</span><div><h2>Keselamatan Ketenagalistrikan (K2)</h2><p>Alur digital pengawasan dari perencanaan sampai tindak lanjut.</p></div></div>
+  <div class="timeline"><div><b>01</b><h3>Penetapan objek</h3><p>Prioritas berbasis risiko, izin, histori dan pengaduan.</p></div><div><b>02</b><h3>Inspeksi lapangan</h3><p>Checklist, pengukuran, GPS, foto/video dan catatan teknis.</p></div><div><b>03</b><h3>Temuan & rekomendasi</h3><p>Klasifikasi temuan, tindakan korektif dan batas waktu.</p></div><div><b>04</b><h3>Verifikasi</h3><p>Before-after, re-inspeksi dan penutupan temuan.</p></div></div>
+</section>
+
+<section id="berita" class="section alt">
+  <div class="section-title"><span>04</span><div><h2>Berita & Pengumuman</h2><p>Konten dapat dikelola admin setelah database diaktifkan.</p></div></div>
+  <div class="grid news"><article><span>INFO</span><h3>Portal SIKEKAR Kaltim</h3><p>Ruang informasi dan layanan digital ketenagalistrikan daerah.</p></article><article><span>K2</span><h3>Pembinaan & Pengawasan</h3><p>Publikasi agenda, hasil kegiatan dan edukasi keselamatan.</p></article><article><span>DATA</span><h3>Dashboard Ketenagalistrikan</h3><p>Ringkasan statistik objek pengawasan dan tindak lanjut.</p></article></div>
+</section>
+
+<section id="dokumen" class="section"><div class="section-title"><span>05</span><div><h2>Pusat Dokumen</h2><p>Siapkan dokumen publik tanpa membuka data rahasia.</p></div></div>
+<div class="docs"><div>📘 Pedoman K2 <button>Unduh</button></div><div>📋 Checklist Inspeksi <button>Unduh</button></div><div>📄 Format Berita Acara <button>Unduh</button></div><div>📊 Template Pelaporan Semester <button>Unduh</button></div></div></section>
+
+<section id="pengaduan" class="section alt"><div class="section-title"><span>06</span><div><h2>Pengaduan & Laporan</h2><p>Form demo. Hubungkan ke Supabase pada tahap backend.</p></div></div>
+<form id="complaint" class="form"><input required placeholder="Nama"><input required type="email" placeholder="Email"><input placeholder="Lokasi kejadian"><select><option>Keselamatan K2</option><option>Gangguan pelayanan</option><option>Instalasi/pembangkit</option><option>Lainnya</option></select><textarea required placeholder="Uraian laporan"></textarea><button class="btn primary">Kirim Laporan</button><span id="formMsg"></span></form></section>
+
+<section id="login" class="section login-section"><div class="login-box"><span class="eyebrow">AREA TERBATAS</span><h2>Login SIKEKAR</h2><p>Demo antarmuka. Autentikasi nyata diaktifkan melalui Supabase pada tahap backend.</p><input placeholder="Email / nomor WhatsApp"><input type="password" placeholder="Password"><button class="btn primary" onclick="alert('Mode demo. Hubungkan Supabase untuk login nyata.')">Masuk</button></div></section>
+</main>
+
+<footer><div><b>SIKEKAR</b><p>Sistem Informasi Ketenagalistrikan & Keselamatan — Provinsi Kalimantan Timur</p></div><div><p>Portal publik • K2 • GIS • Pelaporan • Dashboard</p></div></footer>
+<script src="app.js"></script>
+</body></html>
