@@ -4,15 +4,21 @@
 // ==========================================
 
 // ---------- SUPABASE CONFIG ----------
-// GANTI 2 NILAI DI BAWAH INI
-const SUPABASE_URL = "https://xtsswagzmilocpzjmrxa.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wsec_CUeinzgkyH5huOfwA_epZzjC8o";
 
-// Membuat koneksi Supabase
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
+const SUPABASE_URL =
+    "https://xtsswagzmilocpzjmrxa.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_wsec_CUeinzgkyH5huOfwA_epZzjC8o";
+
+
+// ---------- SUPABASE CLIENT ----------
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
 
 
 // ==========================================
@@ -31,45 +37,71 @@ const data = [
 // DASHBOARD PUBLIK
 // ==========================================
 
-document.getElementById("mUsaha").textContent = "128";
-document.getElementById("mInspeksi").textContent = "486";
-document.getElementById("mTemuan").textContent = "73";
-document.getElementById("mLokasi").textContent = "612";
+const mUsaha =
+    document.getElementById("mUsaha");
+
+const mInspeksi =
+    document.getElementById("mInspeksi");
+
+const mTemuan =
+    document.getElementById("mTemuan");
+
+const mLokasi =
+    document.getElementById("mLokasi");
+
+if (mUsaha) mUsaha.textContent = "128";
+if (mInspeksi) mInspeksi.textContent = "486";
+if (mTemuan) mTemuan.textContent = "73";
+if (mLokasi) mLokasi.textContent = "612";
 
 
 // ==========================================
 // QUICK SEARCH
 // ==========================================
 
-const search = document.getElementById("search");
-const results = document.getElementById("results");
+const search =
+    document.getElementById("search");
+
+const results =
+    document.getElementById("results");
 
 search?.addEventListener("input", () => {
 
-    const q = search.value.toLowerCase();
+    const q =
+        search.value.toLowerCase();
 
-    const x = data.filter(r =>
-        r.join(" ").toLowerCase().includes(q)
-    );
+    const x =
+        data.filter(r =>
+            r.join(" ")
+                .toLowerCase()
+                .includes(q)
+        );
 
     if (!q) {
 
-        results.innerHTML =
-            "Ketik untuk mencari data contoh.";
+        if (results) {
+            results.innerHTML =
+                "Ketik untuk mencari data contoh.";
+        }
 
         return;
     }
 
     if (x.length) {
 
-        results.innerHTML = x.map(r =>
-            `<div>⚡ <b>${r[0]}</b> — ${r[1]}</div>`
-        ).join("");
+        if (results) {
+            results.innerHTML =
+                x.map(r =>
+                    `<div>⚡ <b>${r[0]}</b> — ${r[1]}</div>`
+                ).join("");
+        }
 
     } else {
 
-        results.innerHTML =
-            "Tidak ada data demo yang cocok.";
+        if (results) {
+            results.innerHTML =
+                "Tidak ada data demo yang cocok.";
+        }
     }
 });
 
@@ -78,19 +110,23 @@ search?.addEventListener("input", () => {
 // FORM PENGADUAN DEMO
 // ==========================================
 
-document.getElementById("complaint")?.addEventListener(
-    "submit",
-    e => {
+document
+    .getElementById("complaint")
+    ?.addEventListener("submit", e => {
 
         e.preventDefault();
 
-        document.getElementById("formMsg").textContent =
-            " Laporan demo tersimpan di browser. " +
-            "Penyimpanan online akan menggunakan Supabase.";
+        const formMsg =
+            document.getElementById("formMsg");
+
+        if (formMsg) {
+
+            formMsg.textContent =
+                "Laporan demo tersimpan di browser.";
+        }
 
         e.target.reset();
-    }
-);
+    });
 
 
 // ==========================================
@@ -99,48 +135,108 @@ document.getElementById("complaint")?.addEventListener(
 
 async function loginSIKEKAR() {
 
-    const email =
-        document.getElementById("loginEmail").value.trim();
+    const emailElement =
+        document.getElementById("loginEmail");
 
-    const password =
-        document.getElementById("loginPassword").value;
+    const passwordElement =
+        document.getElementById("loginPassword");
 
     const message =
         document.getElementById("loginMessage");
 
+
+    const email =
+        emailElement?.value.trim();
+
+    const password =
+        passwordElement?.value;
+
+
     if (!email || !password) {
 
-        message.textContent =
-            "Email dan password wajib diisi.";
+        if (message) {
+
+            message.textContent =
+                "Email dan password wajib diisi.";
+        }
 
         return;
     }
 
-    message.textContent =
-        "Memproses login...";
 
-    const { data, error } =
-        await supabaseClient.auth.signInWithPassword({
-            email: email,
-            password: password
-        });
-
-    if (error) {
-
-        console.error("LOGIN ERROR:", error);
+    if (message) {
 
         message.textContent =
-            "Login gagal. Periksa email dan password.";
-
-        return;
+            "Memproses login...";
     }
 
-    console.log(
-        "AUTH BERHASIL:",
-        data.user
-    );
 
-    await loadUserProfile();
+    try {
+
+        console.log("SIKEKAR: mulai login");
+        console.log("Email:", email);
+
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.auth.signInWithPassword({
+
+                email: email,
+                password: password
+            });
+
+
+        if (error) {
+
+            console.error(
+                "SUPABASE LOGIN ERROR:",
+                error
+            );
+
+
+            if (message) {
+
+                message.textContent =
+                    "LOGIN GAGAL: " +
+                    error.message;
+            }
+
+            return;
+        }
+
+
+        console.log(
+            "LOGIN BERHASIL:",
+            data.user
+        );
+
+
+        if (message) {
+
+            message.textContent =
+                "Login berhasil. Membaca profil...";
+        }
+
+
+        await loadUserProfile();
+
+    } catch (err) {
+
+        console.error(
+            "SIKEKAR ERROR:",
+            err
+        );
+
+
+        if (message) {
+
+            message.textContent =
+                "ERROR: " +
+                err.message;
+        }
+    }
 }
 
 
@@ -155,13 +251,21 @@ async function loadUserProfile() {
             user
         },
         error: authError
-    } = await supabaseClient.auth.getUser();
+    } =
+        await supabaseClient.auth.getUser();
+
+
+    const message =
+        document.getElementById("loginMessage");
 
 
     if (authError || !user) {
 
-        document.getElementById("loginMessage").textContent =
-            "Sesi login tidak ditemukan.";
+        if (message) {
+
+            message.textContent =
+                "Sesi login tidak ditemukan.";
+        }
 
         return;
     }
@@ -174,26 +278,28 @@ async function loadUserProfile() {
 
 
     // Ambil profil pengguna
+
     const {
         data: profile,
         error
-    } = await supabaseClient
-        .from("profiles")
-        .select(`
-            id,
-            full_name,
-            email,
-            position,
-            institution_name,
-            is_active,
-            role_id,
-            roles (
-                role_code,
-                role_name
-            )
-        `)
-        .eq("id", user.id)
-        .single();
+    } =
+        await supabaseClient
+            .from("profiles")
+            .select(`
+                id,
+                full_name,
+                email,
+                position,
+                institution_name,
+                is_active,
+                role_id,
+                roles (
+                    role_code,
+                    role_name
+                )
+            `)
+            .eq("id", user.id)
+            .single();
 
 
     if (error) {
@@ -203,8 +309,13 @@ async function loadUserProfile() {
             error
         );
 
-        document.getElementById("loginMessage").textContent =
-            "Profil SIKEKAR tidak ditemukan.";
+
+        if (message) {
+
+            message.textContent =
+                "Profil SIKEKAR tidak ditemukan: " +
+                error.message;
+        }
 
         return;
     }
@@ -217,18 +328,24 @@ async function loadUserProfile() {
 
 
     // Pastikan akun aktif
+
     if (!profile.is_active) {
 
         await supabaseClient.auth.signOut();
 
-        document.getElementById("loginMessage").textContent =
-            "Akun Anda tidak aktif.";
+
+        if (message) {
+
+            message.textContent =
+                "Akun Anda tidak aktif.";
+        }
 
         return;
     }
 
 
     // Ambil kode role
+
     const role =
         profile.roles?.role_code;
 
@@ -239,7 +356,8 @@ async function loadUserProfile() {
     );
 
 
-    // Arahkan sesuai role
+    // Arahkan ke dashboard
+
     bukaDashboard(
         profile,
         role
@@ -251,12 +369,16 @@ async function loadUserProfile() {
 // ARAHKAN KE DASHBOARD
 // ==========================================
 
-function bukaDashboard(profile, role) {
+function bukaDashboard(
+    profile,
+    role
+) {
 
     console.log(
         "Login sebagai:",
         profile.full_name
     );
+
 
     console.log(
         "Role:",
@@ -364,11 +486,12 @@ function bukaDashboard(profile, role) {
 
         default:
 
-            document.getElementById(
-                "loginMessage"
-            ).textContent =
-                "Role akun belum dikonfigurasi: " +
-                role;
+            if (message) {
+
+                message.textContent =
+                    "Role akun belum dikonfigurasi: " +
+                    role;
+            }
     }
 }
 
@@ -381,7 +504,9 @@ async function logoutSIKEKAR() {
 
     const {
         error
-    } = await supabaseClient.auth.signOut();
+    } =
+        await supabaseClient.auth.signOut();
+
 
     if (error) {
 
@@ -392,6 +517,7 @@ async function logoutSIKEKAR() {
 
         return;
     }
+
 
     window.location.href =
         "index.html";
@@ -406,6 +532,11 @@ if ("serviceWorker" in navigator) {
 
     navigator.serviceWorker
         .register("sw.js")
-        .catch(() => {});
+        .catch(error => {
 
+            console.warn(
+                "Service Worker:",
+                error
+            );
+        });
 }
