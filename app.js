@@ -135,6 +135,8 @@ document
 
 async function loginSIKEKAR() {
 
+    alert("Fungsi LOGIN SIKEKAR berjalan");
+    
     const emailElement =
         document.getElementById("loginEmail");
 
